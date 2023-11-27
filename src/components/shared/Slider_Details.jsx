@@ -7,8 +7,8 @@ import Trailer from "./Trailer";
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
 const Slider_Details = ({ trend_movie, status, icon, media }) => {
-  const [openTrailer, setOpenTrailer] = useState(false);
-  const [showId, setShowId] = useState("");
+  // const [openTrailer, setOpenTrailer] = useState(false);
+  // const [showId, setShowId] = useState("");
   return (
     <div>
       <div className="absolute bottom-20 left-10 sm:left-2 w-[50%] md:w-[90%]">
@@ -55,7 +55,7 @@ const Slider_Details = ({ trend_movie, status, icon, media }) => {
               <SlInfo className="text-2xl" />
               <h2>See details</h2>
             </Link>
-            <div
+            {/* <div
               className="flex items-center gap-x-2 bg-red-600 hover:bg-red-500 
           transition-all duration-300 ease-in w-fit p-2 rounded-md shadow-sm"
               onClick={() => {
@@ -65,17 +65,17 @@ const Slider_Details = ({ trend_movie, status, icon, media }) => {
             >
               <BsPlayCircleFill className="text-2xl " />
               <h2>Watch Trailer</h2>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
-      <Trailer
+      {/* <Trailer
         openTrailer={openTrailer}
         setOpenTrailer={setOpenTrailer}
         id={showId}
         type={media}
         home={true}
-      />
+      /> */}
     </div>
   );
 };
