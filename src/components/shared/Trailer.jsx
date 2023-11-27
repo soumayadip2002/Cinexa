@@ -20,7 +20,7 @@ const Trailer = React.memo(({ openTrailer, setOpenTrailer, id, type, home }) => 
     try {
       setLoading(true);
       const response = await fetch(
-        `http://api.themoviedb.org/3/${type}/${id}/videos?api_key=${api}&language=en-US`
+        `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${api}&language=en-US`
       );
       const data = await response.json();
       console.log(data)
