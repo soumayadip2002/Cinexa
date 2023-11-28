@@ -30,7 +30,7 @@ const TopTrend = ({ heading, movies, type }) => {
           },
         }}
         modules={[Navigation]}
-        className="mySwiper relative"
+        className="mySwiper z-0"
       >
         {movies.map((movie) => (
           <SwiperSlide
@@ -45,13 +45,14 @@ const TopTrend = ({ heading, movies, type }) => {
             }
           >
             <div
-              className="py-2 px-2 mt-[4rem] h-[22rem] sm:mt-[2rem] sm:h-[17rem] cursor-pointer group overflow-hidden
+              className="py-2 px-2 mt-[4rem] h-[22rem] sm:mt-[2rem] sm:h-[17rem] 
+              cursor-pointer group overflow-hidden
               "
             >
               <img
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                 alt=""
-                className="h-full w-full shadow-2xl "
+                className="h-full w-full shadow-2xl"
               />
               <div
                 className="absolute bottom-[-110%] group-hover:bottom-2
