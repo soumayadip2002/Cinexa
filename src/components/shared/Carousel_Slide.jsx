@@ -6,7 +6,6 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import { SlInfo } from "react-icons/sl";
 import { BsPlayCircleFill } from "react-icons/bs";
-import { SwiperButton } from "./SwiperButton";
 import Trailer from "./Trailer";
 import { Link } from "react-router-dom";
 const Carousel_Slide = ({ trending, status, icon, media }) => {
@@ -34,10 +33,11 @@ const Carousel_Slide = ({ trending, status, icon, media }) => {
               <div className="h-[90vh]">
                 <img
                   src={`https://image.tmdb.org/t/p/original${trend_movie.backdrop_path}`}
-                  className="block opacity-60 w-full h-full object-cover object-center z-[5]"
+                  className="block  w-full h-full object-cover object-center z-[5]"
                   alt=""
                 />
                 <div className="absolute bottom-0 w-full h-[40vh] bg-gradient-to-t from-[#121212] to-transparent"></div>
+                <div className="absolute top-0 w-full h-[20vh] bg-gradient-to-b from-[#121212] to-transparent"></div>
               </div>
               <Slider_Details
                 trend_movie={trend_movie}
@@ -71,7 +71,6 @@ const Carousel_Slide = ({ trending, status, icon, media }) => {
           )
         )
         .slice(0, 15)}
-      <SwiperButton />{" "}
       <Trailer
         openTrailer={openTrailer}
         setOpenTrailer={setOpenTrailer}

@@ -40,7 +40,7 @@ const Navbar = () => {
   return (
     <nav
       className={`top-0 w-full md:px-2 transition-all duration-300  
-      ease-in bg-gradient-to-b from-black to-transparent py-[1rem] px-[3rem] ${
+      ease-in bg-gradient-to-b from-black  to-transparent py-[1rem] px-[3rem] ${
         fixedNavbar ? "fixed" : ""
       }  flex justify-between items-center z-[1000]`}
     >
