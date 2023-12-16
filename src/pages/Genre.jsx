@@ -16,7 +16,7 @@ const Genre = () => {
           `https://api.themoviedb.org/3/discover/movie?api_key=${api}&language=en-US&page=${page}&with_genres=${gener_id}`
         );
         const data = await response.json();
-        //console.log(data);
+        console.log(data);
         setMovies((previous) => ({
           page: data.page,
           results:

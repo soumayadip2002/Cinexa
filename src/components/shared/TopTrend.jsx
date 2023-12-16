@@ -22,11 +22,11 @@ const TopTrend = ({ heading, movies, type }) => {
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 10,
+            spaceBetween: 2,
           },
           1024: {
             slidesPerView: 6,
-            spaceBetween: 10,
+            spaceBetween: 2,
           },
         }}
         modules={[Navigation]}
@@ -45,14 +45,14 @@ const TopTrend = ({ heading, movies, type }) => {
             }
           >
             <div
-              className="py-2 px-2 mt-[4rem] h-[20rem] sm:h-[18rem] sm:mt-[2rem]
-              cursor-pointer group overflow-hidden
+              className="py-2 px-2 mt-[4rem] h-[20rem] sm:h-[19rem] sm:mt-[2rem]
+              cursor-pointer group overflow-hidden 
               "
             >
               <img
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                 alt=""
-                className="h-full w-full shadow-2xl"
+                className="h-full w-full shadow-2xl rounded-lg"
               />
               <div
                 className="absolute bottom-[-110%] group-hover:bottom-2

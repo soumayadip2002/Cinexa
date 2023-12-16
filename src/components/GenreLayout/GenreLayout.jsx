@@ -4,6 +4,7 @@ import Loading from "../Loading/Loading";
 import { FaCalendarAlt } from "react-icons/fa";
 import BackButton from "../BackButton/BackButton";
 import { useNavigate } from "react-router-dom";
+import Rating from "../shared/Rating";
 const GenreLayout = ({ name, movies, page, setPage }) => {
   const navigate = useNavigate();
   return (
@@ -15,29 +16,23 @@ const GenreLayout = ({ name, movies, page, setPage }) => {
         </h1>
         {movies.page > 0 ? (
           <div>
-            <ul className="grid grid-cols-6 gap-4 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 mt-4">
+            <ul className="grid grid-cols-6 gap-4 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 mt-4">
               {movies.results.map((movie) =>
-                movie.backdrop_path ? (
-                  <li key={movie.id} className="rounded-md cursor-pointer">
+                movie.poster_path ? (
+                  <li key={movie.id} className="cursor-pointer relative">
                     <img
-                      src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                       alt={`${movie.title}`}
-                      className="hover:opacity-40 transition-all duration-300 ease-in-out"
+                      className="transition-all rounded-lg  duration-300 ease-in-out h-[18rem] sm:h-[15rem] w-full"
                       onClick={() => {
                         navigate(`/details/movie/${movie.id}`);
                       }}
                     />
-                    <div className="p-2 bg-[#343a40]">
-                      <h2 className="font-normal text-md">
-                        {movie.title.length > 15
-                          ? movie.title.slice(0, 15) + ".."
-                          : movie.title}
-                      </h2>
-                      <p className="text-[.8rem] flex gap-x-1 items-center">
-                        <FaCalendarAlt className="text-[#5cb7cf]" />
-                        {movie.release_date}
-                      </p>
+                    <div className="p-2
+                    absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent rounded-b-lg">
+                      <Rating value={movie.vote_average*10} />
                     </div>
+                    
                   </li>
                 ) : (
                   ""
