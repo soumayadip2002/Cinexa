@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RiMovie2Line } from "react-icons/ri";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { GrSearch } from "react-icons/gr";
+import { useLocation, useNavigate } from "react-router-dom";
+import DekstopSearch from "./DekstopSearch";
 import NavLink from "./NavLink";
 import MobileNav from "./MobileNav";
 const Navbar = () => {
@@ -80,19 +80,7 @@ const Navbar = () => {
         ))}
         <NavLink />
       </ul>
-      <div
-        className="p-1 bg-white  text-black md:hidden rounded-lg 
-      border-2 border-[#5cb7cf] flex items-center gap-x-1"
-      >
-        <input
-          type="search"
-          className="bg-transparent md:hidden border-none outline-none px-2"
-          placeholder="search here..."
-        />
-        <div className="text-xl text-[#5cb7cf]">
-          <GrSearch />
-        </div>
-      </div>
+      <DekstopSearch />
       <MobileNav
         open={open}
         setOpen={setOpen}
