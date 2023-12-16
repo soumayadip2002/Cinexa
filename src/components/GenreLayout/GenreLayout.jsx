@@ -23,7 +23,7 @@ const GenreLayout = ({ name, movies, page, setPage }) => {
                     <img
                       src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                       alt={`${movie.title}`}
-                      className="transition-all rounded-lg  duration-300 ease-in-out h-[18rem] sm:h-[15rem] w-full"
+                      className="transition-all rounded-lg  duration-300 ease-in-out h-[19rem] xs:h-[15rem] w-full"
                       onClick={() => {
                         navigate(`/details/movie/${movie.id}`);
                       }}

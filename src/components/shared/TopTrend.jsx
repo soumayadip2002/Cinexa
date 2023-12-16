@@ -16,7 +16,7 @@ const TopTrend = ({ heading, movies, type }) => {
         slidesPerView={1}
         spaceBetween={5}
         breakpoints={{
-          375: {
+          360: {
             slidesPerView: 2,
             spaceBetween: 2,
           },
@@ -45,7 +45,7 @@ const TopTrend = ({ heading, movies, type }) => {
             }
           >
             <div
-              className="py-2 px-2 mt-[4rem] h-[20rem] sm:h-[19rem] sm:mt-[2rem]
+              className="py-2 px-2 mt-[4rem] h-[20rem] sm:h-[19rem] xs:h-[15rem] sm:mt-[2rem]
               cursor-pointer group overflow-hidden 
               "
             >

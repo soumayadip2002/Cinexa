@@ -13,6 +13,7 @@ const Navbar = () => {
   const hanleFxNavbar = () => {
     setFixedNavbar(window.scrollY > 200);
   };
+
   useEffect(() => {
     hanleFxNavbar();
     window.addEventListener("scroll", hanleFxNavbar);
@@ -20,6 +21,15 @@ const Navbar = () => {
       window.removeEventListener("scroll", hanleFxNavbar);
     };
   }, []);
+  useEffect(()=>{
+    const handleScroll = ()=>{
+      setOpen(false)
+    };
+    window.addEventListener('scroll', handleScroll);
+    return()=>{
+      window.removeEventListener('scroll', handleScroll);
+    }
+  },[])
   const nav_items = [
     {
       id: 1,
@@ -49,10 +59,10 @@ const Navbar = () => {
         <p className="text-2xl md:text-2xl">Cinexa</p>
       </div>
       <ul
-        className={`flex gap-x-2 text-lg md:absolute ${
+        className={`flex gap-x-2 text-lg md:fixed ${
           open ? "md:left-0" : "md:left-[-110%]"
         } transition-all ease-linear duration-300
-        md:top-[4.2rem] sm:w-full md:w-[70%] md:pt-60 z-50 sm:pt-20 md:flex-col md:bg-gradient-to-t from-black to-slate-900 md:shadow-md md:h-full md:px-3
+        md:top-[4.2rem] sm:w-full md:w-[70%] md:overflow-y-auto md:h-[100vh] md:pt-60 z-50 sm:pt-20 md:flex-col md:bg-gradient-to-t from-black to-slate-900 md:shadow-md md:px-3
        md:gap-y-4`}
       >
         {nav_items.map((item) => (
