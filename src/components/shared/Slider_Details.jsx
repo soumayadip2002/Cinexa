@@ -1,9 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { SlCalender } from "react-icons/sl";
-import { SlInfo } from "react-icons/sl";
-import { BsPlayCircleFill } from "react-icons/bs";
-import Trailer from "./Trailer";
-import { Link } from "react-router-dom";
 import Rating from "./Rating";
 const Slider_Details = ({ trend_movie, status, icon, media }) => {
   return (
