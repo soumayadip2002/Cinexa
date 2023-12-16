@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import GenreLayout from "../components/GenreLayout/GenreLayout";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { setLoadingMovies, resetMovies } from "../state/reducer";
 const Genre = () => {
   const gener_id = useParams().id;
   const gener_name = useParams().genre;
   const [page, setPage] = useState(1);
-
-  const [movies, setMovies] = useState({ page: 0, results: [] });
+  const movies = useSelector((state) => state.loadingmovies);
   const api = import.meta.env.VITE_TMDB_API
-
+  const dispatch = useDispatch();
   useEffect(() => {
     const getGenreMovies = async () => {
       try {
@@ -16,18 +18,18 @@ const Genre = () => {
           `https://api.themoviedb.org/3/discover/movie?api_key=${api}&language=en-US&page=${page}&with_genres=${gener_id}`
         );
         const data = await response.json();
-        console.log(data);
-        setMovies((previous) => ({
-          page: data.page,
-          results:
-            data.page !== previous.page
-              ? [...previous.results, ...data.results]
-              : previous.results,
-        }));
+        dispatch(
+          setLoadingMovies({
+            page: data.page,
+            results: data.results,
+            category: gener_id,
+          })
+        );
       } catch (error) {
         console.log(error)
       }
     };
+    movies.category !== gener_id && dispatch(resetMovies());
     getGenreMovies();
   }, [gener_id, page]);
 

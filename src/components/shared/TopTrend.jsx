@@ -56,7 +56,7 @@ const TopTrend = ({ heading, movies, type }) => {
               />
               <div
                 className="absolute bottom-[-110%] group-hover:bottom-2
-                transition-all duration-300 ease-out  left-2 right-2 
+                transition-all duration-300 ease-out  left-2 right-2 rounded-b-lg
                 m-auto bg-gradient-to-t from-black via-black to-transparent h-[50%] p-2 
                 "
               >

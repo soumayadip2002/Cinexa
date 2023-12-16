@@ -14,12 +14,12 @@ const GenreLayout = ({ name, movies, page, setPage }) => {
         <h1 className="text-3xl my-3 overflow-hidden text-[#957fef] sm:text-center">
           {name}
         </h1>
-        {movies.page > 0 ? (
+        {movies.page? (
           <div>
             <ul className="grid grid-cols-6 gap-4 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 mt-4">
-              {movies.results.map((movie) =>
-                movie.poster_path ? (
-                  <li key={movie.id} className="cursor-pointer relative">
+              {movies.results && movies.results.map((movie) =>
+                movie.poster_path  ? (
+                  <li key={movie.id+Date.now()} className="cursor-pointer relative">
                     <img
                       src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                       alt={`${movie.title}`}
