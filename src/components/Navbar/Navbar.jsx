@@ -3,11 +3,9 @@ import { RiMovie2Line } from "react-icons/ri";
 import { useLocation, useNavigate } from "react-router-dom";
 import DekstopSearch from "./DekstopSearch";
 import NavLink from "./NavLink";
-import MobileNav from "./MobileNav";
 const Navbar = () => {
   const [fixedNavbar, setFixedNavbar] = useState(false);
   const [open, setOpen] = useState(false);
-  const [openSearch, setOpenSearch] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const hanleFxNavbar = () => {
@@ -80,13 +78,7 @@ const Navbar = () => {
         ))}
         <NavLink />
       </ul>
-      <DekstopSearch />
-      <MobileNav
-        open={open}
-        setOpen={setOpen}
-        openSearch={openSearch}
-        setOpenSearch={setOpenSearch}
-      />
+      <DekstopSearch open={open} setOpen={setOpen} />
     </nav>
   );
 };

@@ -9,7 +9,6 @@ const TrendWeek = () => {
         `https://api.themoviedb.org/3/trending/all/week?api_key=${api}&language=en-US`
       );
       const data = await response.json();
-      console.log(data);
       setMovies(data.results);
     } catch (error) {
       console.log(error)
