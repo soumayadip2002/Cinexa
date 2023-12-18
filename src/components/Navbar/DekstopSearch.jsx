@@ -49,7 +49,7 @@ const DekstopSearch = ({ open, setOpen }) => {
         {open ? <RxCross2 /> : <RiMenu3Line />}
       </div>
 
-      <SearchResult movies={movies} search={search} />
+      <SearchResult movies={movies} search={search} setSearch={setSearch} />
     </div>
   );
 };

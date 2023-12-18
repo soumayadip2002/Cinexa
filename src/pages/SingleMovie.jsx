@@ -5,13 +5,23 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setSingleMovies } from "../state/reducer";
 const SingleMovie = () => {
-  const id = useParams().id;
-  const type = useParams().type;
+  const id_param = useParams().id;
+  const type_param = useParams().type;
   const api = import.meta.env.VITE_TMDB_API;
-  const movies = useSelector((state)=>state.singlemovie);
+  const movies = useSelector((state) => state.singlemovie);
+  const [id, setId] = useState("");
+  const [type, setType] = useState("");
+  console.log(type + "" + id);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const handleParams = () => {
+      id_param && setId(id_param);
+      type_param && setType(type_param);
+    };
+    handleParams();
+  }, [id_param, type_param]);
   const getMovieDetails = async () => {
     setLoading(true);
     try {
@@ -23,16 +33,17 @@ const SingleMovie = () => {
       dispatch(setSingleMovies(data));
       console.log(data);
     } catch (error) {
-      console.log(error)
-    }
-    finally{
+      console.log(error);
+    } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    getMovieDetails();
-  }, []);
+    if (id && type) {
+      getMovieDetails();
+    }
+  }, [id, type]);
   return (
     <div>
       <Navbar />

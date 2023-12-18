@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-const SearchResult = ({ movies, search }) => {
+const SearchResult = ({ movies, search, setSearch }) => {
   const navigate = useNavigate();
   return (
     <div
@@ -19,6 +19,7 @@ const SearchResult = ({ movies, search }) => {
                     cursor-pointer hover:bg-[#fcfcfcfc] transition-all duration-300"
                   onClick={() => {
                     navigate(`/details/${movie.media_type}/${movie.id}`);
+                    setSearch("")
                   }}
                 >
                   <div className="flex gap-x-2 items-center">

@@ -18,15 +18,15 @@ const TopTrend = ({ heading, movies, type }) => {
         breakpoints={{
           360: {
             slidesPerView: 2,
-            spaceBetween: 2,
+            spaceBetween: 10,
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 2,
+            spaceBetween: 10,
           },
           1024: {
             slidesPerView: 6,
-            spaceBetween: 2,
+            spaceBetween: 10,
           },
         }}
         modules={[Navigation]}
@@ -45,18 +45,18 @@ const TopTrend = ({ heading, movies, type }) => {
             }
           >
             <div
-              className="py-2 px-2 mt-[4rem] h-[20rem] sm:h-[19rem] xs:h-[15rem] sm:mt-[2rem]
-              cursor-pointer group overflow-hidden 
+              className="mt-[4rem] sm:mt-[2rem]
+              cursor-pointer group overflow-hidden h-full
               "
             >
               <img
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                 alt=""
-                className="h-full w-full shadow-2xl rounded-lg"
+                className="flex h-full w-full shadow-2xl rounded-lg"
               />
               <div
-                className="absolute bottom-[-110%] group-hover:bottom-2
-                transition-all duration-300 ease-out  left-2 right-2 rounded-b-lg
+                className="absolute bottom-[-110%] group-hover:bottom-0
+                transition-all duration-300 ease-out  left-0 right-0 rounded-b-lg
                 m-auto bg-gradient-to-t from-black via-black to-transparent h-[50%] p-2 
                 "
               >

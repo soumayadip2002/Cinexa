@@ -25,7 +25,7 @@ const CastsCrew = ({ id, type }) => {
         <h1 className="text-2xl">Casts:</h1>
         <hr />
         <div className="grid gap-4 mt-4 sm:hidden md:grid-cols-2 md:gap-2">
-          {casts
+          {casts.length>0 && casts
             .map((cast) => (
               <div
                 className="flex gap-2 items-center sm:flex-col bg-[#121212] p-2 sm:p-1 rounded-md"
@@ -55,7 +55,7 @@ const CastsCrew = ({ id, type }) => {
           showStatus={false}
           className="hidden sm:block gap-4 mt-4"
         >
-          {casts
+          { casts
             .map((cast) => (
               <div className="bg-[#121212] p-2 rounded-md" key={cast.id}>
                 <div className="flex justify-center">
