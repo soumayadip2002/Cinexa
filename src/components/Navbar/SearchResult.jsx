@@ -8,7 +8,7 @@ const SearchResult = ({ movies, search }) => {
         search ? "block" : "hidden"
       }`}
     >
-      {movies ? (
+      {movies.length>1 ? (
         <ul className="px-2 py-1">
           {movies.map(
             (movie) =>
@@ -44,7 +44,6 @@ const SearchResult = ({ movies, search }) => {
                           {movie.release_date &&
                             movie.release_date.split("-")[0]}
                         </p>
-                        {/* <p className="h-[.2rem] w-[.2rem] rounded-full p-[.175rem] bg-gray-600"></p> */}
                         <p></p>
                       </div>
                     </div>
@@ -53,14 +52,14 @@ const SearchResult = ({ movies, search }) => {
               )
           )}
 
-          <div className="flex justify-center items-center w-full mt-2">
+          {movies.length>0 && <div className="flex justify-center items-center w-full mt-2">
             <button
               className=" bg-[#5cb7cf] py-1 w-full px-2 rounded-sm text-white capitalize hover:bg-[#62d1ec] 
                 transition-all duration-300"
             >
               view all results
             </button>
-          </div>
+          </div>}
         </ul>
       ) : (
         ""
