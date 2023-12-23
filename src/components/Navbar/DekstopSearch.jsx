@@ -26,7 +26,7 @@ const DekstopSearch = ({ open, setOpen }) => {
   return (
     <div
       className="p-1 bg-white  text-black rounded-lg 
-  border-2 border-[#5cb7cf] flex items-center gap-x-1 relative md:p-0 sm:w-[50%] md:bg-transparent md:border-none"
+  border-2 border-[#5cb7cf] flex items-center gap-x-1 relative md:p-0 sm:w-[50%] md:bg-transparent md:border-none z-[1000]"
     >
       <input
         type="text"

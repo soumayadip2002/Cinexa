@@ -6,8 +6,8 @@ const Details = ({ movie, loading, type }) => {
   return (
     <>
       {!loading && movie ? (
-        <div className="mb-[3rem]">
-          <div className="relative w-[95%] m-auto md:w-[100%] mb-4">
+        <div className="mb-[3rem] absolute top-0 z-[-1]">
+          <div className="relative mb-4">
             <div className="h-screen w-full md:h-[50%] ">
               <img
                 src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}

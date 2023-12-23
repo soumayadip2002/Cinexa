@@ -11,7 +11,6 @@ const SingleMovie = () => {
   const movies = useSelector((state) => state.singlemovie);
   const [id, setId] = useState("");
   const [type, setType] = useState("");
-  console.log(type + "" + id);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 

@@ -23,17 +23,22 @@ const Carousel_Slide = ({ trending, status, icon, media }) => {
         clickable: true,
       }}
       modules={[Pagination, Autoplay]}
-      className="mySwiper relative"
+      className="mySwiper relative mt-[-5rem]"
     >
       {trending
         .filter((trend_movie) => trend_movie.backdrop_path !== null)
         .map((trend_movie, index) =>
           trend_movie.backdrop_path ? (
             <SwiperSlide key={index} className="">
-              <div className="h-[90vh]">
+              <div className="h-screen">
                 <img
                   src={`https://image.tmdb.org/t/p/original${trend_movie.backdrop_path}`}
-                  className="block  w-full h-full object-cover object-center z-[5]"
+                  className="block  w-full h-full object-cover object-center z-[5] md:hidden"
+                  alt=""
+                />
+                <img
+                  src={`https://image.tmdb.org/t/p/original${trend_movie.poster_path}`}
+                  className="w-full h-full object-cover object-center z-[5] hidden md:block opacity-40"
                   alt=""
                 />
                 <div className="absolute bottom-0 w-full h-[40vh] bg-gradient-to-t from-[#121212] to-transparent"></div>

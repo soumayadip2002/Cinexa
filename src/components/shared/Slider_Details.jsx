@@ -9,9 +9,15 @@ const Slider_Details = ({ trend_movie, status, icon, media }) => {
           <h1 className="text-5xl font-bold md:text-3xl sm:text-2xl md:text-center w-fit">
             {media === "movie"
               ? trend_movie.title
-                ? trend_movie.title.split(":")[0]
+                ? trend_movie.title.includes(":")
+                  ? trend_movie.title.split(":")[0]
+                  : trend_movie.title.length > 20
+                  ? trend_movie.title.slice(0, 20) + ".."
+                  : trend_movie.title
                 : trend_movie.original_name.split(":")[0]
-              : media==="tv" ? trend_movie.name.split(":")[0] : ""}
+              : media === "tv"
+              ? trend_movie.name.split(":")[0]
+              : ""}
           </h1>
           <div className="text-xl">
             <div className="flex items-center mt-2 gap-x-2">
@@ -20,14 +26,16 @@ const Slider_Details = ({ trend_movie, status, icon, media }) => {
             </div>
           </div>
           <p className="mt-4 text-md sm:text-sm text-gray-200 text-left">
-            {trend_movie.overview.length > 300
-              ? trend_movie.overview.slice(0, 300) + "..."
+            {trend_movie.overview.length > 100
+              ? trend_movie.overview.slice(0, 100) + "..."
               : trend_movie.overview}
           </p>
           <div className="mt-3 flex items-center gap-x-1">
-            <Rating value={trend_movie.vote_average && trend_movie.vote_average*10}/>
+            <Rating
+              value={trend_movie.vote_average && trend_movie.vote_average * 10}
+            />
           </div>
-          {media==="tv" ? (
+          {media === "tv" ? (
             <div className="mt-3 flex items-center gap-x-2 text-lg">
               <SlCalender className="shadow-sm text-fuchsia-600" />
               <h2 className="">{trend_movie.first_air_date}</h2>
@@ -45,7 +53,6 @@ const Slider_Details = ({ trend_movie, status, icon, media }) => {
           )}
         </div>
       </div>
-
     </div>
   );
 };

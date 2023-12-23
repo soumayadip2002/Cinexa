@@ -52,7 +52,8 @@ const NavLink = () => {
                 {menu === link.name ? <IoIosArrowUp /> : <IoChevronDown />}
               </h2>
               {/* dekstop menu */}
-              <div className="absolute group-hover:block group-hover:md:hidden hidden hover:md:hidden hover:block bg-black shadow-lg rounded-lg z-50">
+              <div className="absolute group-hover:block group-hover:md:hidden hidden hover:md:hidden hover:block bg-black 
+              shadow-lg rounded-lg z-50">
                 <div className="p-4 grid grid-cols-3 gap-x-3 gap-y-1 text-[1rem]">
                   {link.data ? (
                     link.data.map((info) => (
