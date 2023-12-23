@@ -22,7 +22,7 @@ const CastsCrew = ({ id, type }) => {
   return (
     <div>
       <div className="p-4 bg-black md:mt-4">
-        <h1 className="text-2xl">Casts:</h1>
+        <h1 className="text-2xl">Top Casts</h1>
         <hr />
         <div className="grid gap-4 mt-4 sm:hidden md:grid-cols-2 md:gap-2">
           {casts.length>0 && casts
