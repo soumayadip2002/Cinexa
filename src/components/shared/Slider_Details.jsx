@@ -16,7 +16,9 @@ const Slider_Details = ({ trend_movie, status, icon, media }) => {
                   : trend_movie.title
                 : trend_movie.original_name.split(":")[0]
               : media === "tv"
+              ? trend_movie.name.includes(":")
               ? trend_movie.name.split(":")[0]
+              : trend_movie.name
               : ""}
           </h1>
           <div className="text-xl">

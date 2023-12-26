@@ -48,7 +48,7 @@ const Navbar = () => {
   return (
     <nav
       className={`top-0 w-full md:px-2 bg-transparent py-[1rem] px-[3rem] ${
-        fixedNavbar ? "fixed bg-[#171d22]" : ""
+        fixedNavbar ? "fixed bg-[#131a20] shadow-md shadow-slate-900" : ""
       }  flex justify-between items-center z-[1000]`}
     >
       <div className="flex items-center z-[1000]  gap-x-1">

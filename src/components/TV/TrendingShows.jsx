@@ -6,7 +6,7 @@ const TrendingShows = () => {
   const getTrendShows = async () => {
     try {
       const response = await fetch(
-        `https://api.themoviedb.org/3/trending/tv/week?api_key=${api}&language=en-US`
+        `https://api.themoviedb.org/3/trending/tv/week?api_key=${api}&language=en-US&page=2`
       );
       const data = await response.json();
       setShows(data.results);
@@ -23,7 +23,7 @@ const TrendingShows = () => {
       <TopTrend
         movies={shows}
         type={"tv"}
-        heading={"Weekly Trending Shows"}
+        heading={"Trending Shows"}
       />
     </div>
   );
