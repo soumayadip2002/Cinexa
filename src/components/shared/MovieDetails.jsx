@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { LiaImdb } from "react-icons/lia";
 import { FaRegClock } from "react-icons/fa";
 import { IoMdPlay } from "react-icons/io";
 import { FaCalendarAlt } from "react-icons/fa";
-import { AiFillLike } from "react-icons/ai";
 import { IoLanguageOutline } from "react-icons/io5";
 import Trailer from "./Trailer";
 import Rating from "./Rating";
@@ -30,30 +28,21 @@ const MovieDetails = ({ movie, type }) => {
           ? movie.name
           : movie.original_name}
       </h1>
+      <p className="text-md text-gray-300 mt-4 md:mt-2 sm:text-justify">
+        {movie.overview}
+      </p>
 
-      <div className="flex gap-x-4 mt-4 sm:flex-col">
-        {type === "tv" || (movie.status && movie.status === "Released") ? (
-          today > targetDate ? (
-            <h1 className="px-2 py-[.2rem] w-fit border-2 border-gray-200 text-white shadow-[rgba(255,_255,_255,_0.7)_0px_3px_8px]">
-              HD
-            </h1>
-          ) : (
-            <h1 className="px-2 py-[.2rem] w-fit border-2 border-gray-200 text-white shadow-[rgba(255,_255,_255,_0.7)_0px_3px_8px]">
-              CAM
-            </h1>
-          )
-        ) : (
-          ""
-        )}
+      <div className="flex gap-x-4 mt-4 sm:flex-col md:gap-y-2">
         <div className="flex items-center gap-x-1 sm:mt-2">
           <ul className="text-md relative flex gap-x-2">
             {movie.genres &&
               movie.genres.length > 0 &&
               movie.genres.map((genre, index) => (
-                <li key={genre.id} className="text-md text-gray-100">
-                  {index !== movie.genres.length - 1
-                    ? genre.name + ","
-                    : genre.name}
+                <li
+                  key={genre.id}
+                  className="text-md text-gray-100 bg-pink-600 px-2 py-[.2rem] rounded-sm flex items-center"
+                >
+                  {genre.name}
                 </li>
               ))}
           </ul>
@@ -83,9 +72,7 @@ const MovieDetails = ({ movie, type }) => {
           </div>
         )}
       </div>
-      <p className="text-md text-gray-200 mt-4 sm:text-justify">
-        {movie.overview}
-      </p>
+
       {type === "tv" && (
         <div className="mt-4">
           <div>
@@ -107,34 +94,25 @@ const MovieDetails = ({ movie, type }) => {
         </div>
       )}
 
-      <div className="mt-2 flex items-center gap-x-1">
+      <div className="my-4 flex items-center gap-x-1">
         {movie.spoken_languages && movie.spoken_languages.length > 0 && (
-          <div className="flex items-center gap-x-[.2rem]">
-            <IoLanguageOutline className="text-[#5cb7cf] text-lg" />
-            {movie.spoken_languages.map((language, index) => (
-              <div key={language.iso_639_1}>
-                <p className="text-md">
-                  {index !== movie.spoken_languages.length - 1
-                    ? language.english_name + ","
-                    : language.english_name}
-                </p>
-              </div>
-            ))}
+          <div className="flex items-center gap-x-2">
+            <div className="flex items-center gap-x-2">
+              {movie.spoken_languages.map((language, index) => (
+                <div key={language.iso_639_1} className="flex items-center">
+                  <p className="text-md bg-[rgba(255,255,255,0.1)] px-2 py-[.2rem] rounded-sm">
+                    {language.english_name}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>
-      
+
       <div className="my-4">
-      <Rating value={movie.vote_average * 10} />
+        <Rating value={movie.vote_average * 10} />
       </div>
-      <div className="flex items-center gap-x-2 mt-4">
-        
-        <h2 className="text-yellow-500 rounded-md  font-bold">
-          <AiFillLike className="text-xl " />
-        </h2>
-        {movie.vote_average}
-      </div>
-      
       {movie.budget
         ? movie.budget > 0 && (
             <div className="mt-4 flex items-center gap-x-2">
@@ -156,7 +134,7 @@ const MovieDetails = ({ movie, type }) => {
           )
         : ""}
 
-      <div className="flex items-center mt-4 gap-x-2 sm:grid sm:gap-y-2">
+      <div className="flex items-center mt-2 gap-x-2 sm:grid sm:gap-y-2">
         <div
           className="flex items-center gap-x-[.2rem] mt-4 border-[.1rem] border-[#5cb7cf] bg-transparent hover:bg-[#5cb7cf]
         transition-all duration-300 ease-in py-2 px-4 w-fit rounded-3xl shadow-inner cursor-pointer"

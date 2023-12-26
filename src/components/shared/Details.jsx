@@ -6,16 +6,17 @@ const Details = ({ movie, loading, type }) => {
   return (
     <>
       {!loading && movie ? (
-        <div className="mb-[3rem] mt-[-5rem] z-[-1]">
-          <div className="h-full w-full md:h-[70vh] relative">
+        <div className="mb-[3rem] mt-[-5rem] z-[-1] lg:mt-0 md:mt-[-5rem]">
+          <div className="h-full w-full lg:h-screen lg:w-screen md:h-[70vh] relative">
             <img
               src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
               alt=""
               className="h-full w-full opacity-10"
             />
-            <div className="absolute top-1/2 left-2 transform -translate-y-1/2 md:left-1/2 md:-translate-x-1/2">
-              <div className="w-[90%] m-auto md:w-full grid grid-cols-[22rem,auto] md:grid-cols-1 gap-2">
-                <div className="h-[30rem] w-[20rem] sm:h-[15rem] sm:w-[10rem]">
+            <div className="absolute top-1/2 left-2 -translate-y-1/2 md:left-1/2 md:top-[55%] md:-translate-x-1/2  
+            sm:h-[20rem] sm:w-[15rem] w-fit h-fit">
+              <div className="w-[90%] m-auto md:w-full sm:w-full grid grid-cols-[22rem,auto] md:grid-cols-1 gap-x-8">
+                <div className="">
                   <img
                     src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                     alt=""

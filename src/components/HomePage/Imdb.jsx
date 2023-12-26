@@ -51,7 +51,7 @@ const Imdb = () => {
           </div>
         </div>
       </div>
-      <TopImdb movies={movies} />
+      <TopImdb movies={movies} type={type} />
     </div>
   );
 };

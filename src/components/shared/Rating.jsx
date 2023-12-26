@@ -33,7 +33,7 @@ const Rating = ({ value }) => {
         }}
       >
         <div className={`absolute flex justify-center items-center ${value>60 ? "text-[#38b000]" : value>40?"text-[#ffdd00]":"text-[#dc2f02]"}`}>
-            {Math.floor(value )+"%"}
+            {(value/10).toFixed(1)}
         </div>
       </div>
     </div>

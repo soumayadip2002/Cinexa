@@ -1,6 +1,8 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-const TopImdb = ({ movies }) => {
+import { useNavigate } from "react-router-dom";
+const TopImdb = ({ movies, type }) => {
+  const navigate = useNavigate();
   return (
     <div className="mt-12">
       <ul className="grid grid-cols-9 gap-2 sm:grid-cols-3 md:grid-cols-4">
@@ -8,7 +10,9 @@ const TopImdb = ({ movies }) => {
           {movies &&
             movies.map((movie) => (
               <motion.div key={movie.id} layout>
-                <li key={movie.id} className="relative">
+                <li key={movie.id} className="relative" onClick={()=>{
+                  navigate(`/details/${type}/${movie.id}`)
+                }}>
                   <img
                     src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                     alt="poster"
