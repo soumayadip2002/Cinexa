@@ -5,7 +5,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay } from "swiper/modules";
 import { FaThumbsUp } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 const NowPlaying = ({ movies, type }) => {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="w-[70%] m-auto md:w-[80%] sm:w-full relative mb-12">
@@ -27,7 +29,13 @@ const NowPlaying = ({ movies, type }) => {
           >
             {movies &&
               movies.map((movie) => (
-                <SwiperSlide key={movie.id} className="group cursor-pointer">
+                <SwiperSlide
+                  key={movie.id}
+                  className="group cursor-pointer"
+                  onClick={() => {
+                    navigate(`/details/${type}/${movie.id}`);
+                  }}
+                >
                   <div>
                     {movie.backdrop_path && (
                       <img

@@ -9,7 +9,7 @@ const PopularTv = () => {
   const getPopularMovies = async () => {
     try {
       const response = await fetch(
-        `https://api.themoviedb.org/3/tv/popular?api_key=${api}&language=en-US`
+        `https://api.themoviedb.org/3/tv/popular?api_key=${api}&language=en-US&page=2`
       );
       const data = await response.json();
       setMovies(data.results);
