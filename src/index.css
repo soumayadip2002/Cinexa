@@ -26,9 +26,21 @@
 }
 
 @layer utilities {
+  .circlerating {
+    background-color: #000;
+    border-radius: 50%;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+  .circlerating .CircularProgressbar-trail {
+    stroke: #222;
+  }
+  .circlerating .CircularProgressbar-text {
+    font-size: 34px;
+    font-weight: 700;
+  }
   .active {
     color: #5cb7cf;
-    
   }
   .active::before {
     position: absolute;
@@ -43,9 +55,9 @@
     margin: auto;
   }
 
-  @media screen and (max-width:991px){
-    .active::before{
-        display: none;
+  @media screen and (max-width: 991px) {
+    .active::before {
+      display: none;
     }
   }
 }

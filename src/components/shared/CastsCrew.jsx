@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
 const CastsCrew = ({ id, type }) => {
   const [casts, setCasts] = useState([]);
   const api = import.meta.env.VITE_TMDB_API;
@@ -46,7 +45,7 @@ const CastsCrew = ({ id, type }) => {
               spaceBetween: 10,
             },
           }}
-          className="mySwiper mt-8"
+          className="mySwiper mt-5"
         >
           {casts.length > 0 &&
             casts.map((cast) => (

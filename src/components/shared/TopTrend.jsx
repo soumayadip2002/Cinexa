@@ -35,7 +35,7 @@ const TopTrend = ({ heading, movies, type }) => {
         {movies.map((movie) => (
           <SwiperSlide
             key={movie.id}
-            className="relative"
+            className="flex relative h-auto"
             onClick={() =>
               navigate(
                 `/details/${movie.media_type ? movie.media_type : type}/${
@@ -45,14 +45,14 @@ const TopTrend = ({ heading, movies, type }) => {
             }
           >
             <div
-              className="mt-[4rem] sm:mt-[2rem]
-              cursor-pointer group overflow-hidden h-full
+              className="flex mt-[4rem] sm:mt-[2rem]
+              cursor-pointer group  rounded-lg
               "
             >
               <img
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                 alt=""
-                className="flex h-full w-full shadow-2xl rounded-lg"
+                className="flex h-full w-full rounded-lg"
               />
               <div
                 className="absolute bottom-[-110%] group-hover:bottom-0

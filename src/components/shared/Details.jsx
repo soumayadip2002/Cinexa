@@ -2,6 +2,7 @@ import React from "react";
 import Loading from "../Loading/Loading";
 import CastsCrew from "./CastsCrew";
 import MovieDetails from "./MovieDetails";
+import Similar from "./Similar";
 const Details = ({ movie, loading, type }) => {
   return (
     <>
@@ -15,15 +16,15 @@ const Details = ({ movie, loading, type }) => {
             />
             <div className="absolute top-1/2 left-2 -translate-y-1/2 md:left-1/2 md:top-[55%] md:-translate-x-1/2  
             w-fit h-fit">
-              <div className="w-[90%] m-auto md:w-full sm:w-full grid grid-cols-[.8fr,2fr] md:grid-cols-1 gap-x-8">
-                <div className="">
+              <div className="w-[90%] m-auto md:w-full sm:w-full grid grid-cols-[.9fr,2fr] md:grid-cols-1 gap-x-8 h-fit">
+                <div className="h-full">
                   <img
                     src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                     alt=""
                     className="h-full w-full rounded-md shadow-lg"
                   />
                 </div>
-                <div className="md:hidden">
+                <div className="md:hidden h-full flex items-center">
                   <MovieDetails movie={movie} type={type} />
                 </div>
               </div>
@@ -35,6 +36,7 @@ const Details = ({ movie, loading, type }) => {
           </div>
 
           <CastsCrew id={movie.id} type={type} />
+          <Similar id={movie.id} type={type} />
         </div>
       ) : (
         <Loading />
