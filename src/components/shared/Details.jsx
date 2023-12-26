@@ -11,7 +11,7 @@ const Details = ({ movie, loading, type }) => {
             <img
               src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
               alt=""
-              className="h-full w-full opacity-10"
+              className="h-full w-full opacity-10 md:opacity-30"
             />
             <div className="absolute top-1/2 left-2 -translate-y-1/2 md:left-1/2 md:top-[55%] md:-translate-x-1/2  
             w-fit h-fit">
