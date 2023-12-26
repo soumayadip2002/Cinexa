@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar/Navbar";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setSingleMovies } from "../state/reducer";
+import Footer from "../components/shared/Footer";
 const SingleMovie = () => {
   const id_param = useParams().id;
   const type_param = useParams().type;
@@ -47,6 +48,7 @@ const SingleMovie = () => {
     <div>
       <Navbar />
       <Details movie={movies} type={type} loading={loading} />
+      <Footer />
     </div>
   );
 };

@@ -118,7 +118,7 @@ const MovieDetails = ({ movie, type }) => {
             <div className="mt-4 flex items-center gap-x-2">
               <h1 className="text-lg">Budget: </h1>
               <h1 className="text-md text-gray-300">
-                {numberFormatter(movie.budget)}
+                ${numberFormatter(movie.budget)}
               </h1>
             </div>
           )
@@ -128,7 +128,7 @@ const MovieDetails = ({ movie, type }) => {
             <div className="mt-2 flex items-center gap-x-2 ">
               <h1 className="text-lg">Collection: </h1>
               <h1 className="text-md text-gray-200">
-                {numberFormatter(movie.revenue)}
+                ${numberFormatter(movie.revenue)}
               </h1>
             </div>
           )
@@ -146,72 +146,6 @@ const MovieDetails = ({ movie, type }) => {
           <h2 className="text-md">Watch Trailer</h2>
         </div>
       </div>
-      {/* {movie.networks && (
-        <div className="mt-4 ">
-          <h1 className="text-xl my-2 border-b-2 border-gray-500">Streaming Platform</h1>
-
-          <div
-            className={`grid grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-2`}
-          >
-            {movie.networks.length > 0 &&
-              movie.networks.map((ott) => (
-                <div className="flex items-center gap-x-2 my-2">
-                  <div className="h-[3rem] w-[3rem] rounded-full bg-gray-200 p-1 overflow-hidden ">
-                    <img
-                      src={`https://image.tmdb.org/t/p/original/${ott.logo_path}`}
-                      alt="logo"
-                      className="h-full w-full  
-                  object-center object-contain"
-                    />
-                  </div>
-                  <h2 className="text-lg">
-                    {ott.name > 15 ? ott.name.slice(0, 15) + ".." : ott.name}
-                  </h2>
-                </div>
-              ))}
-          </div>
-        </div>
-      )}
-      <div className="mt-4">
-        <h1 className="border-b-2 border-gray-500 text-xl">
-          Production Companies
-        </h1>
-        <div className="grid grid-cols-5 gap-3  sm:grid-cols-1 md:grid-cols-3 items-center mt-2">
-          {movie.production_companies &&
-            movie.production_companies.length > 0 &&
-            movie.production_companies.map((company) => (
-              <div key={company.id} className="flex items-center gap-x-1">
-                <div className="h-[3rem] w-[3rem]  rounded-full overflow-hidden bg-gray-200">
-                  <img
-                    src={`https://image.tmdb.org/t/p/original/${company.logo_path}`}
-                    alt="logo"
-                    className="h-full w-full object-contain object-center"
-                  />
-                </div>
-                <h1>
-                  {company.name.length > 10
-                    ? company.name.slice(0, 10) + ".."
-                    : company.name}
-                </h1>
-              </div>
-            ))}
-        </div>
-      </div>
-
-      <div className="mt-4">
-        <h1 className="border-b-2 border-gray-500 text-xl">
-          Production Coutries
-        </h1>
-        <div className="flex gap-x-2">
-          {movie.production_countries &&
-            movie.production_countries.length > 0 &&
-            movie.production_countries.map((country) => (
-              <div key={country.iso_3166_1} className="">
-                <h2>{country.name},</h2>
-              </div>
-            ))}
-        </div>
-      </div> */}
       <Trailer
         id={movie.id}
         type={type}

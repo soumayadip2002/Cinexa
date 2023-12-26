@@ -42,18 +42,27 @@ const NavLink = () => {
         {nav_links.map((link) => (
           <div key={link.id}>
             <div className="group">
-              <h2
-                className="px-2 py-1 flex items-center gap-x-1 hover:text-[#5cb7ef]"
-                onClick={() =>
-                  menu !== link.name ? setMenu(link.name) : setMenu("")
-                }
+              <div
+                className="flex items-center gap-x-1 hover:text-[#5cb7ef] px-2 py-1"
+                onMouseEnter={() => {
+                  menu !== link.name ? setMenu(link.name) : setMenu("");
+                }}
+                onMouseLeave={() => {
+                  setMenu("");
+                }}
               >
-                {link.name}
-                {menu === link.name ? <IoIosArrowUp /> : <IoChevronDown />}
-              </h2>
+                <h2 className="">
+                  {link.name}
+                </h2>
+                <p>
+                  {menu === link.name ? <IoIosArrowUp /> : <IoChevronDown />}
+                </p>
+              </div>
               {/* dekstop menu */}
-              <div className="absolute group-hover:block group-hover:md:hidden hidden hover:md:hidden hover:block bg-black 
-              shadow-lg rounded-lg z-50">
+              <div
+                className="absolute group-hover:block group-hover:md:hidden hidden hover:md:hidden hover:block bg-black 
+              shadow-lg rounded-lg z-50"
+              >
                 <div className="p-4 grid grid-cols-3 gap-x-3 gap-y-1 text-[1rem]">
                   {link.data ? (
                     link.data.map((info) => (

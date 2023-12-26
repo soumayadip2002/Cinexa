@@ -33,6 +33,8 @@ const Details = ({ movie, loading, type }) => {
           <div className="hidden md:block w-[93%] m-auto mt-12">
             <MovieDetails movie={movie} type={type} />
           </div>
+
+          <CastsCrew id={movie.id} type={type} />
         </div>
       ) : (
         <Loading />
