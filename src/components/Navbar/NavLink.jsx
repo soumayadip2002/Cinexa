@@ -41,15 +41,15 @@ const NavLink = () => {
       <div className="flex items-center gap-x-1 cursor-pointer md:grid md:gap-y-4 md:absolute">
         {nav_links.map((link) => (
           <div key={link.id}>
-            <div className="group">
-              <div
-                className="flex items-center gap-x-1 hover:text-[#5cb7ef] px-2 py-1"
-                onMouseEnter={() => {
+            <div className="group"                 onMouseEnter={() => {
                   menu !== link.name ? setMenu(link.name) : setMenu("");
                 }}
                 onMouseLeave={() => {
                   setMenu("");
-                }}
+                }}>
+              <div
+                className="flex items-center gap-x-1 hover:text-[#5cb7ef] px-2 py-1"
+
               >
                 <h2 className="">
                   {link.name}
