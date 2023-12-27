@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import Details from "../components/shared/Details";
 import Navbar from "../components/Navbar/Navbar";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { setSingleMovies } from "../state/reducer";
+import { useDispatch } from "react-redux";
 import Footer from "../components/shared/Footer";
 import { setMovieContent } from "../state/reducer";
 import SingleMovieSkeleton from "../components/Skeleton/SingleMovieSkeleton";
@@ -11,7 +10,6 @@ const SingleMovie = () => {
   const id_param = useParams().id;
   const type_param = useParams().type;
   const api = import.meta.env.VITE_TMDB_API;
-  //const movies = useSelector((state) => state.singlemovie);
   const [movies, setMovies] = useState([])
   const [id, setId] = useState("");
   const [type, setType] = useState("");
