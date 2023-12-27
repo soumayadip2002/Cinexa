@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NowPlaying from "../shared/NowPlaying";
+import NowPlayingSkeleton from "../Skeleton/NowPlayingSkeleton";
 const Theater = () => {
   const [movies, setMovies] = useState([]);
   const api = import.meta.env.VITE_TMDB_API;
@@ -19,13 +20,15 @@ const Theater = () => {
   useEffect(() => {
     getPopularMovies();
   }, []);
-  return (
+  return movies.length > 0 ? (
     <div>
-        <div className="mt-12 flex justify-center">
-            <h1 className="text-3xl sm:text-xl">Now Playing</h1>
-        </div>
+      <div className="mt-12 flex justify-center">
+        <h1 className="text-3xl sm:text-xl">Now Playing</h1>
+      </div>
       <NowPlaying movies={movies} type={type} />
     </div>
+  ) : (
+    <NowPlayingSkeleton />
   );
 };
 

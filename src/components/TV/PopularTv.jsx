@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Heading from "../shared/Heading";
 import TopImdb from "../shared/TopImdb";
+import TopRatedSkeleton from "../Skeleton/TopRatedSkeleton";
 const PopularTv = () => {
   const [movies, setMovies] = useState([]);
   const api = import.meta.env.VITE_TMDB_API;
@@ -20,11 +21,13 @@ const PopularTv = () => {
   useEffect(() => {
     getPopularMovies();
   }, []);
-  return (
+  return movies.length > 0 ? (
     <div className="w-[95%] m-auto my-8">
       <Heading heading={"Popular Shows"} />
       <TopImdb movies={movies} type={type} />
     </div>
+  ) : (
+    <TopRatedSkeleton />
   );
 };
 

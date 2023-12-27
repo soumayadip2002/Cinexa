@@ -8,9 +8,15 @@ import { SlInfo } from "react-icons/sl";
 import { BsPlayCircleFill } from "react-icons/bs";
 import Trailer from "./Trailer";
 import { Link } from "react-router-dom";
+import { setMovieContent } from "../../state/reducer";
+import { useDispatch } from "react-redux";
 const Carousel_Slide = ({ trending, status, icon, media }) => {
   const [openTrailer, setOpenTrailer] = useState(false);
   const [showId, setShowId] = useState("");
+  const dispatch = useDispatch();
+  if(trending){
+    dispatch(setMovieContent(true))
+  }
   return (
     <Swiper
       spaceBetween={30}

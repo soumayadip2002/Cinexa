@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react'
-import NowPlaying from '../shared/NowPlaying'
+import React, { useState, useEffect } from "react";
+import NowPlaying from "../shared/NowPlaying";
+import NowPlayingSkeleton from "../Skeleton/NowPlayingSkeleton";
 const OnAir = () => {
-    const [movies, setMovies] = useState([]);
-    console.log(movies)
+  const [movies, setMovies] = useState([]);
+  console.log(movies);
   const api = import.meta.env.VITE_TMDB_API;
   const type = "tv";
 
@@ -20,14 +21,16 @@ const OnAir = () => {
   useEffect(() => {
     getPopularMovies();
   }, []);
-  return (
+  return movies.length > 0 ? (
     <div>
-        <div className="mt-12 flex justify-center">
-            <h1 className="text-3xl sm:text-xl">On The Air</h1>
-        </div>
+      <div className="mt-12 flex justify-center">
+        <h1 className="text-3xl sm:text-xl">On The Air</h1>
+      </div>
       <NowPlaying movies={movies} type={type} />
     </div>
-  )
-}
+  ) : (
+    <NowPlayingSkeleton />
+  );
+};
 
-export default OnAir
+export default OnAir;

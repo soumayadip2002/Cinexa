@@ -3,6 +3,7 @@ import "react-circular-progressbar/dist/styles.css";
 import Loading from "../Loading/Loading";
 import Carousel_Slide from "../shared/Carousel_Slide";
 import { FiTrendingUp } from "react-icons/fi";
+import SliderSkeleton from "../Skeleton/SliderSkeleton";
 const Slider = () => {
   const api = import.meta.env.VITE_TMDB_API;
   const [trending, setTrending] = useState([]);
@@ -34,7 +35,7 @@ const Slider = () => {
         }
         />
       ) : (
-        <Loading />
+        <SliderSkeleton />
       )}
     </div>
   );

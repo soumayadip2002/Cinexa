@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TopImdb from "../shared/TopImdb";
-import Heading from "../shared/Heading";
+import TopRatedSkeleton from "../Skeleton/TopRatedSkeleton";
 const Imdb = () => {
   const [movies, setMovies] = useState([]);
   const [type, setType] = useState("movie");
@@ -19,8 +19,8 @@ const Imdb = () => {
   useEffect(() => {
     getTopImdbMovies();
   }, [type]);
-  return (
-    movies.length>0 && <div className="w-[95%] m-auto mb-8">
+  return movies.length > 0 ? (
+    <div className="w-[95%] m-auto mb-8">
       <div className="mt-12">
         <div className="py-1 font-bold text-3xl sm:text-xl flex items-center sm:justify-center">
           <h1>
@@ -53,6 +53,8 @@ const Imdb = () => {
       </div>
       <TopImdb movies={movies} type={type} />
     </div>
+  ) : (
+    <TopRatedSkeleton isTopRated={true} />
   );
 };
 

@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   loadingmovies: { page: 0, results: [], category: "" },
-  singlemovie: {}
+  singlemovie: {},
+  movieContent:false
 };
 
 const moviesSlice = createSlice({
@@ -27,9 +28,13 @@ const moviesSlice = createSlice({
 
     setSingleMovies: (state, action)=>{
       state.singlemovie=action.payload;
+    },
+
+    setMovieContent: (state, action)=>{
+      state.movieContent=action.payload;
     }
   },
 });
 
-export const { setLoadingMovies, resetMovies, setSingleMovies } = moviesSlice.actions;
+export const { setLoadingMovies, resetMovies, setSingleMovies, setMovieContent } = moviesSlice.actions;
 export default moviesSlice.reducer;

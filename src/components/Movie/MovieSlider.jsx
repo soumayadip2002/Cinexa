@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Carousel_Slide from "../shared/Carousel_Slide";
 import Loading from "../Loading/Loading";
 import { MdUpcoming } from "react-icons/md";
+import SliderSkeleton from "../Skeleton/SliderSkeleton";
 const MovieSlider = () => {
   const [upcoming, setUpcoming] = useState([]);
   const api = import.meta.env.VITE_TMDB_API;
@@ -29,7 +30,7 @@ const MovieSlider = () => {
           media={"movie"}
         />
       ) : (
-        <Loading />
+        <SliderSkeleton />
       )}
     </div>
   );

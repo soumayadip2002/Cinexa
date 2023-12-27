@@ -1,6 +1,7 @@
 import React from "react";
 import Heading from "./Heading";
 import { Swiper, SwiperSlide } from "swiper/react";
+import TrendingSkeleton from "../Skeleton/TrendingSkeleton";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
@@ -11,7 +12,6 @@ const TopTrend = ({ heading, movies, type }) => {
   return movies && movies.length > 0 ? (
     <div>
       <Heading heading={heading} />
-
       <Swiper
         slidesPerView={1}
         spaceBetween={5}
@@ -90,7 +90,7 @@ const TopTrend = ({ heading, movies, type }) => {
       </Swiper>
     </div>
   ) : (
-    ""
+    <TrendingSkeleton />
   );
 };
 export default TopTrend;
