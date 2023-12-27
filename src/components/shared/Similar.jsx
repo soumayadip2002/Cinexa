@@ -51,51 +51,53 @@ const Similar = ({ id, type }) => {
             className="mySwiper mt-5"
           >
             {movies.length > 0 &&
-              movies.map((movie) => (
-                <SwiperSlide
-                  className="flex p-[.1rem] mb-4  h-auto relative cursor-pointer"
-                  onClick={() => {
-                    navigate(`/details/${type}/${movie.id}`);
-                    console.log(location.pathname);
-                  }}
-                  key={movie.id}
-                >
-                  <div className="flex h-full w-full">
-                    <img
-                      src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                      alt=""
-                      className="h-full w-full rounded-md"
-                    />
-                  </div>
-                  <div className="absolute circlerating bottom-[-1rem] left-2">
-                    <CircularProgressbar
-                      value={movie.vote_average}
-                      maxValue={10}
-                      text={
-                        movie.vote_average % 1 === 0
-                          ? movie.vote_average.toString()
-                          : movie.vote_average.toFixed(1)
-                      }
-                      strokeWidth={6}
-                      styles={buildStyles({
-                        pathColor:
-                          movie.vote_average < 5
-                            ? "#e71d36"
-                            : movie.vote_average < 7
-                            ? "#ffc300"
-                            : "#70e000",
-                        textColor:
-                          movie.vote_average < 5
-                            ? "#e71d36"
-                            : movie.vote_average < 7
-                            ? "#ffc300"
-                            : "#70e000",
-                        textSize: "2rem",
-                      })}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
+              movies.map(
+                (movie) =>
+                  movie.poster_path && (
+                    <SwiperSlide
+                      className="flex p-[.1rem] mb-4  h-auto relative cursor-pointer"
+                      onClick={() => {
+                        navigate(`/details/${type}/${movie.id}`);
+                        console.log(location.pathname);
+                      }}
+                      key={movie.id}
+                    >
+                      <div className="flex h-full w-full">
+                        <img
+                          src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                          alt=""
+                          className="h-full w-full rounded-md"
+                        />
+                      </div>
+                      <div className="absolute circlerating bottom-[-1rem] left-2">
+                        <CircularProgressbar
+                          value={movie.vote_average}
+                          maxValue={10}
+                          text={
+                            movie.vote_average % 1 === 0
+                              ? movie.vote_average.toString()
+                              : movie.vote_average.toFixed(1)
+                          }
+                          styles={buildStyles({
+                            pathColor:
+                              movie.vote_average < 5
+                                ? "#d00000"
+                                : movie.vote_average < 7
+                                ? "#ffaa00"
+                                : "#008000",
+                            textColor:
+                              movie.vote_average < 5
+                                ? "#d00000"
+                                : movie.vote_average < 7
+                                ? "#ffaa00"
+                                : "#008000",
+                            textSize: "2rem",
+                          })}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  )
+              )}
           </Swiper>
         </div>
       </div>

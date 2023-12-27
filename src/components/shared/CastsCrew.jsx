@@ -48,24 +48,29 @@ const CastsCrew = ({ id, type }) => {
           className="mySwiper mt-5"
         >
           {casts.length > 0 &&
-            casts.map((cast) => (
-              <SwiperSlide
-                className="sm:flex-col p-2 sm:p-1 rounded-md flex items-center flex-col"
-                key={cast.id}
-              >
-                <div className="h-[6rem] w-[6rem] rounded-full overflow-hidden">
-                  <img
-                    src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
-                    alt=""
-                    className="h-full w-full "
-                  />
-                </div>
-                <div className="mt-2 text-center">
-                  <p className="text-md">{cast.original_name}</p>
-                  <h3 className="text-sm text-gray-400">{cast.character}</h3>
-                </div>
-              </SwiperSlide>
-            ))}
+            casts.map(
+              (cast) =>
+                cast.profile_path && (
+                  <SwiperSlide
+                    className="sm:flex-col p-2 sm:p-1 rounded-md flex items-center flex-col"
+                    key={cast.id}
+                  >
+                    <div className="h-[6rem] w-[6rem] rounded-full overflow-hidden">
+                      <img
+                        src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
+                        alt=""
+                        className="h-full w-full "
+                      />
+                    </div>
+                    <div className="mt-2 text-center">
+                      <p className="text-md">{cast.original_name}</p>
+                      <h3 className="text-sm text-gray-400">
+                        {cast.character}
+                      </h3>
+                    </div>
+                  </SwiperSlide>
+                )
+            )}
         </Swiper>
       </div>
     </div>

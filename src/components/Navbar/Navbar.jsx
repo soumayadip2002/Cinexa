@@ -47,8 +47,8 @@ const Navbar = () => {
   ];
   return (
     <nav
-      className={`top-0 w-full md:px-2 ${!fixedNavbar ? "bg-transparent":"bg-[#131a20]"} py-[1rem] px-[3rem] ${
-        fixedNavbar ? "fixed shadow-md shadow-slate-900" : ""
+      className={`top-0 w-full md:px-2 ${!fixedNavbar ? "bg-transparent":"bg-[rgba(255,255,255,0.8)"} py-[1rem] px-[3rem] ${
+        fixedNavbar ? "fixed backdrop-blur-lg" : ""
       }  flex justify-between items-center z-[1000]`}
     >
       <div className="flex items-center z-[1000]  gap-x-1">

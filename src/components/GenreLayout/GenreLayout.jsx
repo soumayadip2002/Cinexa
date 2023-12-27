@@ -9,14 +9,14 @@ const GenreLayout = ({ name, movies, page, setPage }) => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="w-[95%] m-auto">
-        <BackButton />
-        <h1 className="text-3xl my-3 overflow-hidden text-[#957fef] sm:text-center">
+      <div className="w-[95%] m-auto mt-8">
+        {/* <BackButton /> */}
+        <h1 className="py-2 text-[4vw] sm:text-[8vw] sm:text-center stroketext">
           {name}
         </h1>
         {movies.page? (
           <div>
-            <ul className="grid grid-cols-6 gap-4 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 mt-4">
+            <ul className="grid grid-cols-6 gap-4 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 mt-0">
               {movies.results && movies.results.map((movie) =>
                 movie.poster_path  ? (
                   <li key={movie.id+Date.now()} className="cursor-pointer relative">
