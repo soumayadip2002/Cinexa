@@ -30,7 +30,7 @@ const SingleMovie = () => {
         `https://api.themoviedb.org/3/${type}/${id}?api_key=${api}&language=en-US`
       );
       const data = await response.json();
-      dispatch(setMovieContent(true))
+      dispatch(setMovieContent(true));
       dispatch(setSingleMovies(data));
       console.log(data);
     } catch (error) {
@@ -47,9 +47,15 @@ const SingleMovie = () => {
   }, [id, type]);
   return (
     <div>
-      <Navbar />
-      <Details movie={movies} type={type} loading={loading} />
-      <Footer />
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        <Details movie={movies} type={type} loading={loading} />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 };

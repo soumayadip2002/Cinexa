@@ -49,7 +49,7 @@ const Footer = () => {
     },
   ];
   return (
-    <footer className="w-full bg-[#001233] relative">
+    <div className="w-full bg-[#001233] relative">
       <div className="w-[95%] m-auto px-8 pt-8 pb-2">
         <div className="grid grid-cols-4 gap-4  sm:grid-cols-1">
           <div>
@@ -107,7 +107,7 @@ const Footer = () => {
             <p className="flex items-center mt-2 text-[.7rem] text-[#5cb7cf]">Provider TMDB api</p>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 

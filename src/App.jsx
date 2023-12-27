@@ -5,6 +5,7 @@ import Genre from "./pages/Genre"
 import Movies from "./pages/Movies"
 import TvShows from "./pages/TvShows"
 import SingleMovie from "./pages/SingleMovie"
+import AllSearchResults from "./components/HomePage/AllSearchResults"
 function App() {
   return (
     <Routes>
@@ -14,6 +15,7 @@ function App() {
       <Route path="/movies" element={<Movies />} />
       <Route path="/tvshows" element={<TvShows />} />
       <Route path="/details/:type/:id" element={<SingleMovie />} />
+      <Route path="/search/:query" element={<AllSearchResults />} />
     </Routes>
   )
 }

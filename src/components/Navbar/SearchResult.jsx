@@ -1,4 +1,5 @@
 import React from "react";
+import SearchSkeleton from "../Skeleton/SearchSkeleton";
 import { useNavigate } from "react-router-dom";
 const SearchResult = ({ movies, search, setSearch }) => {
   const navigate = useNavigate();
@@ -57,13 +58,16 @@ const SearchResult = ({ movies, search, setSearch }) => {
             <button
               className=" bg-[#5cb7cf] py-1 w-full px-2 rounded-sm text-white capitalize hover:bg-[#62d1ec] 
                 transition-all duration-300"
+                onClick={()=>{
+                  navigate(`/search/${search}`)
+                }}
             >
               view all results
             </button>
           </div>}
         </ul>
       ) : (
-        ""
+        <SearchSkeleton />
       )}
     </div>
   );

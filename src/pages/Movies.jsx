@@ -8,12 +8,18 @@ import Theater from "../components/Movie/Theater";
 const Movies = () => {
   return (
     <div>
-      <Navbar />
-      <MovieSlider />
-      <TrendingMovie />
-      <PopularMovies />
-      <Theater />
-      <Footer />
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        <MovieSlider />
+        <TrendingMovie />
+        <PopularMovies />
+        <Theater />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 };
