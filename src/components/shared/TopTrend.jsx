@@ -35,7 +35,7 @@ const TopTrend = ({ heading, movies, type }) => {
         {movies.map((movie) => (
           <SwiperSlide
             key={movie.id}
-            className="flex relative h-auto"
+            className="relative"
             onClick={() =>
               navigate(
                 `/details/${movie.media_type ? movie.media_type : type}/${
@@ -46,7 +46,7 @@ const TopTrend = ({ heading, movies, type }) => {
           >
             <div
               className="flex mt-[4rem] sm:mt-[2rem]
-              cursor-pointer group  rounded-lg
+              cursor-pointer group  rounded-lg h-[19rem] xs:h-[15rem]
               "
             >
               <img

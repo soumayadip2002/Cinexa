@@ -11,7 +11,8 @@ const SingleMovie = () => {
   const id_param = useParams().id;
   const type_param = useParams().type;
   const api = import.meta.env.VITE_TMDB_API;
-  const movies = useSelector((state) => state.singlemovie);
+  //const movies = useSelector((state) => state.singlemovie);
+  const [movies, setMovies] = useState([])
   const [id, setId] = useState("");
   const [type, setType] = useState("");
   const [loading, setLoading] = useState(false);
@@ -31,7 +32,7 @@ const SingleMovie = () => {
         `https://api.themoviedb.org/3/${type}/${id}?api_key=${api}&language=en-US`
       );
       const data = await response.json();
-      dispatch(setSingleMovies(data));
+      setMovies(data)
       console.log(data);
     } catch (error) {
       console.log(error);

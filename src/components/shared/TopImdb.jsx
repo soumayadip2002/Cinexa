@@ -12,7 +12,7 @@ const TopImdb = ({ movies, type }) => {
             <div key={movie.id}>
               <li
                 key={movie.id}
-                className="relative"
+                className="relative h-[14rem] xs:h-[10.5rem] sm:h-[12rem]"
                 onClick={() => {
                   navigate(`/details/${type}/${movie.id}`);
                 }}
@@ -20,7 +20,7 @@ const TopImdb = ({ movies, type }) => {
                 <img
                   src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                   alt="poster"
-                  className="rounded-lg shadow-lg cursor-pointer"
+                  className="rounded-lg shadow-lg cursor-pointer h-full w-full"
                 />
 
                 <div className="absolute bottom-0 left-0 right-0">

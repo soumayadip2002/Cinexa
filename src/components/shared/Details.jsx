@@ -7,7 +7,7 @@ const Details = ({ movie, type }) => {
   return (
     <>
       <div className="mb-[3rem] mt-[-5rem] z-[-1] lg:mt-0 md:mt-[-5rem]">
-        <div className="h-full w-full lg:h-screen lg:w-screen md:h-[70vh] relative">
+        <div className="h-[120vh] w-full lg:h-screen lg:w-screen md:h-[70vh] relative">
           <img
             src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
             alt=""
@@ -36,8 +36,12 @@ const Details = ({ movie, type }) => {
           <MovieDetails movie={movie} type={type} />
         </div>
 
-        <CastsCrew id={movie.id} type={type} />
-        <Similar id={movie.id} type={type} />
+        {movie && (
+          <div>
+            <CastsCrew id={movie.id} type={type} />
+            <Similar id={movie.id} type={type} />
+          </div>
+        )}
       </div>
     </>
   );
