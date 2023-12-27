@@ -34,7 +34,7 @@ const MovieDetails = ({ movie, type }) => {
 
       <div className="flex gap-x-4 mt-4 sm:flex-col md:gap-y-2">
         <div className="flex items-center gap-x-1 sm:mt-2">
-          <ul className="text-md relative flex gap-x-2">
+          <ul className="text-md relative flex sm:grid sm:grid-cols-3 gap-2">
             {movie.genres &&
               movie.genres.length > 0 &&
               movie.genres.map((genre, index) => (

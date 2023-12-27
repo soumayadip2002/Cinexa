@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSingleMovies } from "../state/reducer";
 import Footer from "../components/shared/Footer";
 import { setMovieContent } from "../state/reducer";
+import SingleMovieSkeleton from "../components/Skeleton/SingleMovieSkeleton";
 const SingleMovie = () => {
   const id_param = useParams().id;
   const type_param = useParams().type;
@@ -30,7 +31,6 @@ const SingleMovie = () => {
         `https://api.themoviedb.org/3/${type}/${id}?api_key=${api}&language=en-US`
       );
       const data = await response.json();
-      dispatch(setMovieContent(true));
       dispatch(setSingleMovies(data));
       console.log(data);
     } catch (error) {
@@ -39,6 +39,9 @@ const SingleMovie = () => {
       setLoading(false);
     }
   };
+  if(!loading){
+    dispatch(setMovieContent(true));
+  }
 
   useEffect(() => {
     if (id && type) {
@@ -51,7 +54,11 @@ const SingleMovie = () => {
         <Navbar />
       </header>
       <main>
-        <Details movie={movies} type={type} loading={loading} />
+        {!loading && movies ? (
+          <Details movie={movies} type={type} />
+        ) : (
+          <SingleMovieSkeleton />
+        )}
       </main>
       <footer>
         <Footer />

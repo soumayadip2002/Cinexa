@@ -8,7 +8,7 @@ const HeadingSkeleton = () => {
     <div>
       <div className="py-1 flex mb-3">
         <SkeletonTheme baseColor="#202020" highlightColor="#444">
-          <Skeleton height={40} width={isMobile ? 250 : 400} />
+          <Skeleton height={40} width={isMobile ? 200 : 400} />
         </SkeletonTheme>
       </div>
     </div>

@@ -12,7 +12,6 @@ const CastsCrew = ({ id, type }) => {
       );
       const data = await response.json();
       setCasts(data.cast);
-      console.log(casts);
     } catch (error) {
       console.log(error);
     }

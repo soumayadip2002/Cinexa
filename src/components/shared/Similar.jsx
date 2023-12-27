@@ -16,7 +16,6 @@ const Similar = ({ id, type }) => {
       );
       const data = await response.json();
       setMovies(data.results);
-      console.log(movies);
     } catch (error) {
       console.log(error);
     }
