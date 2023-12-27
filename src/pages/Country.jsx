@@ -5,6 +5,7 @@ import GenreLayout from "../components/GenreLayout/GenreLayout";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { setLoadingMovies, resetMovies } from "../state/reducer";
+import GenreCountrySkeleton from "../components/Skeleton/GenreCountrySkeleton";
 const Country = () => {
   const country = useParams().name;
   const country_info = country_details.find(
@@ -40,12 +41,12 @@ const Country = () => {
   }, [country, page]);
 
   return (
-    <GenreLayout
+    movies.results.length>0 ? <GenreLayout
       name={country_name}
       movies={movies}
       page={page}
       setPage={setPage}
-    />
+    />:<GenreCountrySkeleton />
   );
 };
 

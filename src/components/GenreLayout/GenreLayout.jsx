@@ -1,8 +1,6 @@
 import React from "react";
 import LoadMore from "../Loading/LoadMore";
 import Loading from "../Loading/Loading";
-import { FaCalendarAlt } from "react-icons/fa";
-import BackButton from "../BackButton/BackButton";
 import { useNavigate } from "react-router-dom";
 import Rating from "../shared/Rating";
 const GenreLayout = ({ name, movies, page, setPage }) => {
@@ -10,7 +8,6 @@ const GenreLayout = ({ name, movies, page, setPage }) => {
   return (
     <>
       <div className="w-[95%] m-auto mt-8">
-        {/* <BackButton /> */}
         <h1 className="py-2 text-[4vw] sm:text-[8vw] sm:text-center stroketext">
           {name}
         </h1>

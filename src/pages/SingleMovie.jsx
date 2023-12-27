@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setSingleMovies } from "../state/reducer";
 import Footer from "../components/shared/Footer";
+import { setMovieContent } from "../state/reducer";
 const SingleMovie = () => {
   const id_param = useParams().id;
   const type_param = useParams().type;
@@ -29,7 +30,7 @@ const SingleMovie = () => {
         `https://api.themoviedb.org/3/${type}/${id}?api_key=${api}&language=en-US`
       );
       const data = await response.json();
-      //setMovie(data);
+      dispatch(setMovieContent(true))
       dispatch(setSingleMovies(data));
       console.log(data);
     } catch (error) {
