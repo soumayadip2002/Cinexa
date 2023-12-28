@@ -15,7 +15,7 @@ const Navbar = () => {
   const checkMovies = useSelector((state) => state.movieContent);
   const dispatch = useDispatch();
   const hanleFxNavbar = () => {
-    setFixedNavbar(window.scrollY > 500);
+    setFixedNavbar(window.scrollY > 300);
   };
 
   useEffect(() => {
