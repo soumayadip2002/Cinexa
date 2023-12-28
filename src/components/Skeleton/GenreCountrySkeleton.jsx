@@ -7,7 +7,7 @@ const GenreCountrySkeleton = ({ isLoading }) => {
   return (
     <div className="w-[95%] m-auto mt-8 mb-8">
       {!isLoading ? (
-        <div className="py-3">
+        <div className="py-3 sm:justify-center flex">
           <SkeletonTheme
             baseColor="#202020"
             highlightColor="#444"

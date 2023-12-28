@@ -10,11 +10,13 @@ const SingleMovie = () => {
   const id_param = useParams().id;
   const type_param = useParams().type;
   const api = import.meta.env.VITE_TMDB_API;
-  const [movies, setMovies] = useState([])
+  const [movies, setMovies] = useState([]);
   const [id, setId] = useState("");
   const [type, setType] = useState("");
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const [imageLoading, setImageLoading] = useState(false);
+  console.log(imageLoading)
 
   useEffect(() => {
     const handleParams = () => {
@@ -23,6 +25,16 @@ const SingleMovie = () => {
     };
     handleParams();
   }, [id_param, type_param]);
+
+  useEffect(() => {
+    if (movies) {
+      const image = new Image();
+      image.src = `https://image.tmdb.org/t/p/original/${movies.backdrop_path}`;
+      image.onload = () => {
+        setImageLoading(true);
+      };
+    }
+  }, [movies.backdrop_path]);
   const getMovieDetails = async () => {
     setLoading(true);
     try {
@@ -30,17 +42,14 @@ const SingleMovie = () => {
         `https://api.themoviedb.org/3/${type}/${id}?api_key=${api}&language=en-US`
       );
       const data = await response.json();
-      setMovies(data)
-      console.log(data);
+      setMovies(data);
     } catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
+      dispatch(setMovieContent(true));
     }
   };
-  if(!loading){
-    dispatch(setMovieContent(true));
-  }
 
   useEffect(() => {
     if (id && type) {
@@ -53,7 +62,7 @@ const SingleMovie = () => {
         <Navbar />
       </header>
       <main>
-        {!loading && movies ? (
+        {imageLoading && !loading && movies ? (
           <Details movie={movies} type={type} />
         ) : (
           <SingleMovieSkeleton />

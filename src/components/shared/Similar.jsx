@@ -28,7 +28,7 @@ const Similar = ({ id, type }) => {
     movies && (
       <div>
         <div className="mt-8 w-[95%] m-auto">
-          <h1 className="text-3xl sm:text-xl">{`Similar ${
+          <h1 data-aos="fade-left" data-aos-duration="600" className="text-3xl sm:text-xl">{`Similar ${
             type === "movie" ? "movies" : "tvshows"
           }`}</h1>
           <Swiper
@@ -60,8 +60,9 @@ const Similar = ({ id, type }) => {
                         console.log(location.pathname);
                       }}
                       key={movie.id}
+                      data-aos="fade-up" data-aos-duration="800"
                     >
-                      <div className="flex h-full w-full">
+                      <div className="flex w-full h-[14rem] xs:h-[10.5rem] sm:h-[12.5rem]">
                         <img
                           src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                           alt=""

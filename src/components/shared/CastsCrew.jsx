@@ -21,58 +21,61 @@ const CastsCrew = ({ id, type }) => {
     id && type && getCasts();
   }, [id, type]);
   return (
-    <div>
-      <div className="mt-8 w-[95%] m-auto">
-        <h1 className="text-3xl sm:text-xl">Top Casts</h1>
-        <Swiper
-          slidesPerView={1}
-          spaceBetween={2}
-          pagination={{
-            clickable: true,
-          }}
-          breakpoints={{
-            360: {
-              slidesPerView: 2.5,
-              spaceBetween: 10,
-            },
-            768: {
-              slidesPerView: 4.5,
-              spaceBetween: 10,
-            },
-            1024: {
-              slidesPerView: 7.5,
-              spaceBetween: 10,
-            },
-          }}
-          className="mySwiper mt-5"
-        >
-          {casts.length > 0 &&
-            casts.map(
-              (cast) =>
-                cast.profile_path && (
-                  <SwiperSlide
-                    className="sm:flex-col p-2 sm:p-1 rounded-md flex items-center flex-col"
-                    key={cast.id}
-                  >
-                    <div className="h-[6rem] w-[6rem] rounded-full overflow-hidden">
-                      <img
-                        src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
-                        alt=""
-                        className="h-full w-full "
-                      />
-                    </div>
-                    <div className="mt-2 text-center">
-                      <p className="text-md">{cast.original_name}</p>
-                      <h3 className="text-sm text-gray-400">
-                        {cast.character}
-                      </h3>
-                    </div>
-                  </SwiperSlide>
-                )
-            )}
-        </Swiper>
+    casts.length > 0 && (
+      <div>
+        <div className="mt-8 w-[95%] m-auto">
+          <h1 className="text-3xl sm:text-xl" data-aos="fade-left" data-aos-duration="600">Top Casts</h1>
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={2}
+            pagination={{
+              clickable: true,
+            }}
+            breakpoints={{
+              360: {
+                slidesPerView: 2.5,
+                spaceBetween: 10,
+              },
+              768: {
+                slidesPerView: 4.5,
+                spaceBetween: 10,
+              },
+              1024: {
+                slidesPerView: 7.5,
+                spaceBetween: 10,
+              },
+            }}
+            className="mySwiper mt-5"
+          >
+            {casts.length > 0 &&
+              casts.map(
+                (cast) =>
+                  cast.profile_path && (
+                    <SwiperSlide
+                      className="sm:flex-col p-2 sm:p-1 rounded-md flex items-center flex-col"
+                      key={cast.id}
+                      data-aos="zoom-out" data-aos-duration="800"
+                    >
+                      <div className="h-[6rem] w-[6rem] rounded-full overflow-hidden">
+                        <img
+                          src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
+                          alt=""
+                          className="h-full w-full "
+                        />
+                      </div>
+                      <div className="mt-2 text-center">
+                        <p className="text-md">{cast.original_name}</p>
+                        <h3 className="text-sm text-gray-400">
+                          {cast.character}
+                        </h3>
+                      </div>
+                    </SwiperSlide>
+                  )
+              )}
+          </Swiper>
+        </div>
       </div>
-    </div>
+    )
   );
 };
 

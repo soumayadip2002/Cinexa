@@ -8,12 +8,12 @@ const GenreLayout = ({ name, movies, page, setPage }) => {
   return (
     <>
       <div className="w-[95%] m-auto mt-8">
-        <h1 className="py-2 text-[4vw] sm:text-[8vw] sm:text-center stroketext">
+        <h1 className="py-2 text-[4vw] sm:text-[8vw] sm:text-center stroketext" data-aos="fade-down" data-aos-duration="1000" data-aos-easing="ease-in-shine"  data-aos-offset="0">
           {name}
         </h1>
         {movies.page? (
           <div>
-            <ul className="grid grid-cols-6 gap-4 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 mt-0">
+            <ul className="grid grid-cols-6 gap-4 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 mt-0" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-shine"  data-aos-offset="0">
               {movies.results && movies.results.map((movie) =>
                 movie.poster_path  ? (
                   <li key={movie.id+Date.now()} className="cursor-pointer relative">

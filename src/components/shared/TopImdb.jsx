@@ -6,13 +6,13 @@ const TopImdb = ({ movies, type }) => {
   const navigate = useNavigate();
   return (
     <div className="mt-12">
-      <ul className="grid grid-cols-8 gap-2 sm:grid-cols-3 md:grid-cols-4">
+      <ul className="grid grid-cols-8 gap-2 sm:grid-cols-3 md:grid-cols-4" data-aos="fade-up" data-aos-duration="800">
         {movies &&
           movies.map((movie) => (
             <div key={movie.id}>
               <li
                 key={movie.id}
-                className="relative h-[14rem] xs:h-[10.5rem] sm:h-[12rem]"
+                className="relative h-[14rem] xs:h-[10.5rem] sm:h-[12.5rem]"
                 onClick={() => {
                   navigate(`/details/${type}/${movie.id}`);
                 }}

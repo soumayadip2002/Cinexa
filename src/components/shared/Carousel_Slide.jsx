@@ -14,8 +14,8 @@ const Carousel_Slide = ({ trending, status, icon, media }) => {
   const [openTrailer, setOpenTrailer] = useState(false);
   const [showId, setShowId] = useState("");
   const dispatch = useDispatch();
-  if(trending){
-    dispatch(setMovieContent(true))
+  if (trending) {
+    dispatch(setMovieContent(true));
   }
   return (
     <Swiper
@@ -50,30 +50,32 @@ const Carousel_Slide = ({ trending, status, icon, media }) => {
                 <div className="absolute bottom-0 w-full h-[40vh] bg-gradient-to-t from-[#121212] to-transparent"></div>
                 <div className="absolute top-0 w-full h-[20vh] bg-gradient-to-b from-[#121212] to-transparent"></div>
               </div>
-              <Slider_Details
-                trend_movie={trend_movie}
-                status={status}
-                icon={icon}
-                media={media}
-              />
-              <div className="absolute bottom-8 sm:left-2 z-[200] left-10 flex items-center gap-x-2 cursor-pointer">
-                <Link
-                  to={`/details/${media}/${trend_movie.id}`}
-                  className="flex items-center gap-x-2 bg-sky-500 hover:bg-sky-400 transition-all duration-300 ease-in w-fit  p-2 rounded-md shadow-sm"
-                >
-                  <SlInfo className="text-2xl" />
-                  <h2>See details</h2>
-                </Link>
-                <div
-                  className="flex items-center gap-x-2 bg-red-600 hover:bg-red-500 
+              <div data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-shine"  data-aos-offset="0">
+                <Slider_Details
+                  trend_movie={trend_movie}
+                  status={status}
+                  icon={icon}
+                  media={media}
+                />
+                <div className="absolute bottom-8 sm:left-2 z-[200] left-10 flex items-center gap-x-2 cursor-pointer">
+                  <Link
+                    to={`/details/${media}/${trend_movie.id}`}
+                    className="flex items-center gap-x-2 bg-sky-500 hover:bg-sky-400 transition-all duration-300 ease-in w-fit  p-2 rounded-md shadow-sm"
+                  >
+                    <SlInfo className="text-2xl" />
+                    <h2>See details</h2>
+                  </Link>
+                  <div
+                    className="flex items-center gap-x-2 bg-red-600 hover:bg-red-500 
           transition-all duration-300 ease-in w-fit p-2 rounded-md shadow-sm"
-                  onClick={() => {
-                    setOpenTrailer(true);
-                    setShowId(trend_movie.id);
-                  }}
-                >
-                  <BsPlayCircleFill className="text-2xl " />
-                  <h2>Watch Trailer</h2>
+                    onClick={() => {
+                      setOpenTrailer(true);
+                      setShowId(trend_movie.id);
+                    }}
+                  >
+                    <BsPlayCircleFill className="text-2xl " />
+                    <h2>Watch Trailer</h2>
+                  </div>
                 </div>
               </div>
             </SwiperSlide>

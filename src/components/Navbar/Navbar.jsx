@@ -54,7 +54,7 @@ const Navbar = () => {
   return checkMovies ? (
     <nav
       className={`top-0 w-full md:px-2 ${
-        !fixedNavbar ? "bg-transparent" : "bg-[rgba(255,255,255,0.8)"
+        !fixedNavbar ? "bg-transparent" : "bg-[rgba(255,255,255,0.2)]"
       } py-[1rem] px-[3rem] ${
         fixedNavbar ? "fixed backdrop-blur-lg" : ""
       }  flex justify-between items-center z-[1000]`}
