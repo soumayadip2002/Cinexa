@@ -4,12 +4,13 @@ import GenreLayout from "../components/GenreLayout/GenreLayout";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { setLoadingMovies, resetMovies } from "../state/reducer";
+import GenreCountrySkeleton from "../components/Skeleton/GenreCountrySkeleton";
 const Genre = () => {
   const gener_id = useParams().id;
   const gener_name = useParams().genre;
   const [page, setPage] = useState(1);
   const movies = useSelector((state) => state.loadingmovies);
-  const api = import.meta.env.VITE_TMDB_API
+  const api = import.meta.env.VITE_TMDB_API;
   const dispatch = useDispatch();
   useEffect(() => {
     const getGenreMovies = async () => {
@@ -26,7 +27,7 @@ const Genre = () => {
           })
         );
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     };
     movies.category !== gener_id && dispatch(resetMovies());
@@ -35,9 +36,17 @@ const Genre = () => {
 
   return (
     <>
-      <GenreLayout name={gener_name} movies={movies} page={page} setPage={setPage} />
+      {movies.results.length > 0 ? (
+        <GenreLayout
+          name={gener_name}
+          movies={movies}
+          page={page}
+          setPage={setPage}
+        />
+      ) : (
+        <GenreCountrySkeleton />
+      )}
     </>
-    
   );
 };
 
