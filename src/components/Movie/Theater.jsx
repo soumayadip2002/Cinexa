@@ -22,7 +22,7 @@ const Theater = () => {
   }, []);
   return movies.length > 0 ? (
     <div>
-      <div className="mt-12 flex justify-center" data-aos="zoom-in" data-aos-duration="600">
+      <div className="mt-12 flex justify-center">
         <h1 className="text-3xl sm:text-xl">Now Playing</h1>
       </div>
       <NowPlaying movies={movies} type={type} />

@@ -13,7 +13,7 @@ const NowPlaying = ({ movies, type }) => {
       <div className="w-[70%] m-auto md:w-[80%] sm:w-full relative mb-12">
         {movies && <img src={MovieImage} alt="" />}
 
-        <div className="absolute top-[20%] left-0 right-0 w-[60%] m-auto md:w-[70%] sm:w-[80%]" data-aos="fade-up" data-aos-duration="600">
+        <div className="absolute top-[20%] left-0 right-0 w-[60%] m-auto md:w-[70%] sm:w-[80%]">
           <Swiper
             className="mySwiper relative"
             spaceBetween={10}

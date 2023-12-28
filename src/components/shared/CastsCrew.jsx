@@ -24,7 +24,7 @@ const CastsCrew = ({ id, type }) => {
     casts.length > 0 && (
       <div>
         <div className="mt-8 w-[95%] m-auto">
-          <h1 className="text-3xl sm:text-xl" data-aos="fade-left" data-aos-duration="600">Top Casts</h1>
+          <h1 className="text-3xl sm:text-xl">Top Casts</h1>
           <Swiper
             slidesPerView={1}
             spaceBetween={2}
@@ -54,7 +54,7 @@ const CastsCrew = ({ id, type }) => {
                     <SwiperSlide
                       className="sm:flex-col p-2 sm:p-1 rounded-md flex items-center flex-col"
                       key={cast.id}
-                      data-aos="zoom-out" data-aos-duration="800"
+                      
                     >
                       <div className="h-[6rem] w-[6rem] rounded-full overflow-hidden">
                         <img

@@ -6,7 +6,7 @@ const TopImdb = ({ movies, type }) => {
   const navigate = useNavigate();
   return (
     <div className="mt-12">
-      <ul className="grid grid-cols-8 gap-2 sm:grid-cols-3 md:grid-cols-4" data-aos="fade-up" data-aos-duration="800">
+      <ul className="grid grid-cols-8 gap-2 sm:grid-cols-3 md:grid-cols-4">
         {movies &&
           movies.map((movie) => (
             <div key={movie.id}>

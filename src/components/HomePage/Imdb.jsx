@@ -30,7 +30,7 @@ const Imdb = () => {
             </span>
           </h1>
         </div>
-        <div className="flex justify-center mt-8" data-aos="fade-down" data-aos-duration="600">
+        <div className="flex justify-center mt-8">
           <div className="flex border-2 items-center border-[#5cb7cf] relative rounded-[10rem] transition-all duration-300 ease-linear">
             <div
               className={`${

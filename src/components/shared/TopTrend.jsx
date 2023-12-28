@@ -37,7 +37,6 @@ const TopTrend = ({ heading, movies, type }) => {
           <SwiperSlide
             key={movie.id}
             className="relative"
-            data-aos="fade-up" data-aos-duration="600"
             onClick={() =>
               navigate(
                 `/details/${movie.media_type ? movie.media_type : type}/${
